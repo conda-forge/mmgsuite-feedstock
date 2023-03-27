@@ -1,5 +1,5 @@
 {% set name = "mmgsuite" %}
-{% set version = "5.6.0" %}
+{% set version = "5.7.1" %}
 
 package:
   name: {{ name }}
@@ -8,7 +8,7 @@ package:
 source:
   fn: {{ name }}_{{ version }}.tar.gz
   url: https://github.com/MmgTools/mmg/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: bbf9163d65bc6e0f81dd3acc5a51e4a8c47a7fdae849abc26277e01154fe2437
+  sha256: 27c09477ebc080f54919f76f8533a343936677c81809fe37ce4e2d62fa97237b
 
 build:
   number: 0
@@ -28,7 +28,7 @@ requirements:
     - jom  # [win]  
     - libscotch
     - iscd-commons
-    - iscd-linearelasticity  
+    - iscd-linearelasticity
   run:
     - libscotch
     - iscd-commons
@@ -49,7 +49,7 @@ about:
   license: LGPL-3.0-only
   license_family: LGPL
   license_file: LICENSE
-  summary: 'mmg - Surface and volume remeshers'
+  summary: mmg - Surface and volume remeshers
   description: |
     open source software for bidimensional and tridimensional surface and volume remeshing
   doc_url: https://www.mmgtools.org/mmg-remesher-try-mmg/mmg-remesher-tutorials
