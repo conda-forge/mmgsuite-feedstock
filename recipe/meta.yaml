@@ -1,5 +1,5 @@
 {% set name = "mmgsuite" %}
-{% set version = "5.6.0" %}
+{% set version = "5.7.3" %}
 
 package:
   name: {{ name }}
@@ -8,10 +8,10 @@ package:
 source:
   fn: {{ name }}_{{ version }}.tar.gz
   url: https://github.com/MmgTools/mmg/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: bbf9163d65bc6e0f81dd3acc5a51e4a8c47a7fdae849abc26277e01154fe2437
+  sha256: b0a9c5ad6789df369a68f94295df5b324b6348020b73bcc395d32fdd44abe706
 
 build:
-  number: 2
+  number: 0
   skip: true  # [py<3 or win]
   ignore_run_exports_from:
     - {{ compiler('cxx') }}
@@ -29,7 +29,7 @@ requirements:
     - jom  # [win]  
     - libscotch
     - iscd-commons
-    - iscd-linearelasticity  
+    - iscd-linearelasticity
   run:
     - libscotch
     - iscd-commons
