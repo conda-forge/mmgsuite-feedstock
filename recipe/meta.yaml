@@ -8,7 +8,7 @@ package:
 source:
   fn: {{ name }}_{{ version }}.tar.gz
   url: https://github.com/MmgTools/mmg/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 686eaab84de79c072f3aedf26cd11ced44c84b435d51ce34e016ad203172922f
+  sha256: bac88f32b8a4eec51ab3d0381c303f5c8ae9fbadea130360688ebe900be26794
 
 build:
   number: 0
