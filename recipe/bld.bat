@@ -1,8 +1,17 @@
-cmake -G"NMake Makefiles JOM" ^
+cmake -G "Ninja" ^
       -D CMAKE_BUILD_TYPE=Release ^
+      -D BUILD_SHARED_LIBS=ON  ^
       -D "CMAKE_INSTALL_PREFIX=%PREFIX%" ^
       -D USE_VTK=OFF ^
-      -S . -B build
+      -D MMG5_INT:STRING=int64_t ^
+      -D MMG5_PACKAGE:BOOL=OFF ^
+      -S .  ^
+      -B builddir
+if errorlevel 1 exit 1
 
-cd build
-devenv mmg.sln /build
+cmake --build builddir
+if errorlevel 1 exit 1
+
+cmake --install builddir
+if errorlevel 1 exit 1
+

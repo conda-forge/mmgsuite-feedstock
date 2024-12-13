@@ -9,12 +9,14 @@ source:
   fn: {{ name }}_{{ version }}.tar.gz
   url: https://github.com/MmgTools/mmg/archive/refs/tags/v{{ version }}.tar.gz
   sha256: 686eaab84de79c072f3aedf26cd11ced44c84b435d51ce34e016ad203172922f
+  patches:
+    - patchs/0001-Add-Option-to-deactivate-the-CPack-directives.patch
 
 build:
-  number: 1
-  skip: true  # [py<3 or win]
+  number: 2
   ignore_run_exports_from:
     - {{ compiler('cxx') }}
+    - {{ compiler('c') }}
 
 requirements:
   build:
@@ -25,15 +27,14 @@ requirements:
     - git
     - setuptools-scm
     - cmake
-    - make  # [not win]
-    - jom  # [win]  
-    - libscotch
-    - iscd-commons
-    - iscd-linearelasticity
+    - ninja
+    - libscotch              # [not win]
+    - iscd-commons           # [not win]
+    - iscd-linearelasticity  # [not win]
   run:
-    - libscotch
-    - iscd-commons
-    - iscd-linearelasticity
+    - libscotch              # [not win]
+    - iscd-commons           # [not win]
+    - iscd-linearelasticity  # [not win]
 
 test:
   commands:
@@ -41,9 +42,9 @@ test:
     - mmg2d_O3 --version || true  # [unix]
     - mmg3d_O3 --version || true  # [unix]
     - test -f $PREFIX/lib/libmmg.so  # [linux]
-    - test -f $PREFIX/lib/libmmg.dylib  # [osx]    
-    - test -f $PREFIX/include/mmg/libmmg.h
-    - test -f $PREFIX/include/mmg/libmmgf.h
+    - test -f $PREFIX/lib/libmmg.dylib  # [osx]
+    - test -f $PREFIX/include/mmg/libmmg.h  # [not win]
+    - test -f $PREFIX/include/mmg/libmmgf.h  # [not win]
 
 about:
   home: https://www.mmgtools.org/mmg-open-source-consortium
@@ -54,7 +55,7 @@ about:
   description: |
     open source software for bidimensional and tridimensional surface and volume remeshing
   doc_url: https://www.mmgtools.org/mmg-remesher-try-mmg/mmg-remesher-tutorials
-  dev_url: http://www.salome-platform.org/
+  dev_url: https://github.com/MmgTools/mmg
 
 extra:
   recipe-maintainers:
