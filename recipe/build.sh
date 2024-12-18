@@ -9,7 +9,6 @@ cmake -G "Ninja" \
     -DTEST_LIBMMG=OFF \
     -DUSE_VTK=OFF \
     -DUSE_ELAS=ON \
-    -DMMG5_INT:STRING=int64_t \
     -S . \
     -B build
 cmake --build ./build --verbose --config Release
