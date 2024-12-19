@@ -3,7 +3,6 @@ cmake -G "Ninja" ^
       -D BUILD_SHARED_LIBS=ON  ^
       -D "CMAKE_INSTALL_PREFIX=%PREFIX%" ^
       -D USE_VTK=OFF ^
-      -D MMG5_INT:STRING=int64_t ^
       -D MMG5_PACKAGE:BOOL=OFF ^
       -S .  ^
       -B builddir

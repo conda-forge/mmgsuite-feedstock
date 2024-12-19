@@ -9,7 +9,7 @@ Package license: LGPL-3.0-only
 
 Summary: mmg - Surface and volume remeshers
 
-Development: http://www.salome-platform.org/
+Development: https://github.com/MmgTools/mmg
 
 Documentation: https://www.mmgtools.org/mmg-remesher-try-mmg/mmg-remesher-tutorials
 
