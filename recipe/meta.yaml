@@ -13,7 +13,7 @@ source:
     - patchs/0001-Add-Option-to-deactivate-the-CPack-directives.patch
 
 build:
-  number: 3
+  number: 4
   ignore_run_exports_from:
     - {{ compiler('cxx') }}
     - {{ compiler('c') }}
