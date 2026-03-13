@@ -1,6 +1,6 @@
 set -e
 
-if [[ "$(uname -m)" == "arm64" ]]; then
+if [[ "${target_platform}" == "osx-arm64" ]]; then
   USE_ELAS=OFF
 else
   USE_ELAS=ON
