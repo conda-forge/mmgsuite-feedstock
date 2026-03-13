@@ -16,6 +16,14 @@ jobs:
         CONFIG: osx_64_use_vtkON
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
+      osx_arm64_use_vtkOFF:
+        CONFIG: osx_arm64_use_vtkOFF
+        UPLOAD_PACKAGES: 'True'
+        VMIMAGE: macOS-15
+      osx_arm64_use_vtkON:
+        CONFIG: osx_arm64_use_vtkON
+        UPLOAD_PACKAGES: 'True'
+        VMIMAGE: macOS-15
   timeoutInMinutes: 360
   variables: {}
 

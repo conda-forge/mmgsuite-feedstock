@@ -62,6 +62,20 @@ Current build status
                 </a>
               </td>
             </tr><tr>
+              <td>osx_arm64_use_vtkOFF</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18967&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mmgsuite-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_use_vtkOFF" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64_use_vtkON</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18967&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mmgsuite-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_use_vtkON" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
               <td>win_64_use_vtkOFF</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18967&branchName=main">
