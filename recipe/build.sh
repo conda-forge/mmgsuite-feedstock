@@ -1,4 +1,11 @@
 set -e
+
+if [[ "$(uname -m)" == "arm64" ]]; then
+  USE_ELAS=OFF
+else
+  USE_ELAS=ON
+fi
+
 cmake -G "Ninja" \
     -DCMAKE_BUILD_TYPE=Release \
     -DBUILD_SHARED_LIBS=ON \
@@ -8,7 +15,7 @@ cmake -G "Ninja" \
     -DTEST_LIBMMGS=OFF \
     -DTEST_LIBMMG=OFF \
     -DUSE_VTK=${use_vtk} \
-    -DUSE_ELAS=ON \
+    -DUSE_ELAS=${USE_ELAS} \
     -S . \
     -B build
 cmake --build ./build --verbose --config Release
