@@ -8,8 +8,11 @@ jobs:
     vmImage: windows-2022
   strategy:
     matrix:
-      win_64_:
-        CONFIG: win_64_
+      win_64_use_vtkOFF:
+        CONFIG: win_64_use_vtkOFF
+        UPLOAD_PACKAGES: 'True'
+      win_64_use_vtkON:
+        CONFIG: win_64_use_vtkON
         UPLOAD_PACKAGES: 'True'
   timeoutInMinutes: 360
   variables:
