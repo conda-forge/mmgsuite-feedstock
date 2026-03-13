@@ -7,7 +7,7 @@ cmake -G "Ninja" \
     -DTEST_LIBMMG2D=OFF \
     -DTEST_LIBMMGS=OFF \
     -DTEST_LIBMMG=OFF \
-    -DUSE_VTK=OFF \
+    -DUSE_VTK=${use_vtk} \
     -DUSE_ELAS=ON \
     -S . \
     -B build
