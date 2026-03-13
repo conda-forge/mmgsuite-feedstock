@@ -13,10 +13,14 @@ source:
     - patchs/0001-Add-Option-to-deactivate-the-CPack-directives.patch
 
 build:
-  number: 7
+  number: 8
+  {% if use_vtk == "ON" %}
+  string: "vtk_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}"
+  {% else %}
   ignore_run_exports_from:
     - {{ compiler('cxx') }}
     - {{ compiler('c') }}
+  {% endif %}
 
 requirements:
   build:
@@ -31,10 +35,12 @@ requirements:
     - libscotch              # [not win]
     - iscd-commons           # [not win]
     - iscd-linearelasticity  # [not win]
+    - vtk                    # [use_vtk == "ON"]
   run:
     - libscotch              # [not win]
     - iscd-commons           # [not win]
     - iscd-linearelasticity  # [not win]
+    - vtk                    # [use_vtk == "ON"]
 
 test:
   commands:
