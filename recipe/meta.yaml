@@ -14,13 +14,10 @@ source:
 
 build:
   number: 8
-  {% if use_vtk == "ON" %}
-  string: "vtk_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}"
-  {% else %}
-  ignore_run_exports_from:
-    - {{ compiler('cxx') }}
-    - {{ compiler('c') }}
-  {% endif %}
+  string: "vtk_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}"  # [use_vtk == "ON"]
+  ignore_run_exports_from:   # [use_vtk != "ON"]
+    - {{ compiler('cxx') }}  # [use_vtk != "ON"]
+    - {{ compiler('c') }}    # [use_vtk != "ON"]
 
 requirements:
   build:
