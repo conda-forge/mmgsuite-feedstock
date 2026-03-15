@@ -1,9 +1,13 @@
 set -e
 
-if [[ "$(uname -m)" == "arm64" ]]; then
+if [[ "${target_platform}" == "osx-arm64" ]]; then
   USE_ELAS=OFF
+  # Disable Perl to skip Fortran header generation during cross-compilation.
+  # The genheader tool would be compiled for arm64 but needs to run on x86_64.
+  CROSS_ARGS="-DCMAKE_DISABLE_FIND_PACKAGE_Perl=TRUE"
 else
   USE_ELAS=ON
+  CROSS_ARGS=""
 fi
 
 cmake -G "Ninja" \
@@ -16,6 +20,7 @@ cmake -G "Ninja" \
     -DTEST_LIBMMG=OFF \
     -DUSE_VTK=${use_vtk} \
     -DUSE_ELAS=${USE_ELAS} \
+    ${CROSS_ARGS} \
     -S . \
     -B build
 cmake --build ./build --verbose --config Release

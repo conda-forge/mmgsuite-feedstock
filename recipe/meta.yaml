@@ -24,19 +24,19 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
-  host:
-    - git
-    - setuptools-scm
     - cmake
     - ninja
+    - git
+    - setuptools-scm
+  host:
     - libscotch              # [not win]
-    - iscd-commons           # [not win and not arm64]
-    - iscd-linearelasticity  # [not win and not arm64]
+    - iscd-commons           # [not win]
+    - iscd-linearelasticity  # [not win]
     - vtk                    # [use_vtk == "ON"]
   run:
     - libscotch              # [not win]
-    - iscd-commons           # [not win and not arm64]
-    - iscd-linearelasticity  # [not win and not arm64]
+    - iscd-commons           # [not win]
+    - iscd-linearelasticity  # [not win]
     - vtk                    # [use_vtk == "ON"]
 
 test:
@@ -47,7 +47,7 @@ test:
     - test -f $PREFIX/lib/libmmg.so  # [linux]
     - test -f $PREFIX/lib/libmmg.dylib  # [osx]
     - test -f $PREFIX/include/mmg/libmmg.h  # [not win]
-    - test -f $PREFIX/include/mmg/libmmgf.h  # [not win]
+    - test -f $PREFIX/include/mmg/libmmgf.h  # [not win and not arm64]
 
 about:
   home: https://www.mmgtools.org/mmg-open-source-consortium
