@@ -13,4 +13,4 @@ target_platform:
 use_vtk:
 - 'OFF'
 vtk:
-- 9.6.1
+- 9.6.2
