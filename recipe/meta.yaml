@@ -13,7 +13,7 @@ source:
     - patchs/0001-Add-Option-to-deactivate-the-CPack-directives.patch
 
 build:
-  number: 14
+  number: 15
   string: "vtk_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}"  # [use_vtk == "ON"]
   ignore_run_exports_from:   # [use_vtk != "ON"]
     - {{ compiler('cxx') }}  # [use_vtk != "ON"]
@@ -32,18 +32,23 @@ requirements:
     - libscotch              # [not win]
     - iscd-commons           # [not win]
     - iscd-linearelasticity  # [not win]
-    - vtk                    # [use_vtk == "ON"]
+    - vtk-base               # [use_vtk == "ON"]
   run:
     - libscotch              # [not win]
     - iscd-commons           # [not win]
     - iscd-linearelasticity  # [not win]
-    - vtk                    # [use_vtk == "ON"]
+    - vtk-base               # [use_vtk == "ON"]
 
 test:
+  source_files:
+    - libexamples/mmg3d/io_generic_and_get_adja/cube.vtu  # [use_vtk == "ON"]
   commands:
-    - mmgs_O3 --version || true  # [unix]
-    - mmg2d_O3 --version || true  # [unix]
-    - mmg3d_O3 --version || true  # [unix]
+    # Target executables cannot run while cross-compiling (for example,
+    # osx-arm64 packages are built on osx-64 CI workers).
+    - mmgs_O3 -h  || true  # [unix and build_platform == target_platform]
+    - mmg2d_O3 -h || true  # [unix and build_platform == target_platform]
+    - mmg3d_O3 -h || true  # [unix and build_platform == target_platform]
+    - mmg3d_O3 libexamples/mmg3d/io_generic_and_get_adja/cube.vtu -out cube.mesh  # [use_vtk == "ON" and build_platform == target_platform]
     - test -f $PREFIX/lib/libmmg.so  # [linux]
     - test -f $PREFIX/lib/libmmg.dylib  # [osx]
     - test -f $PREFIX/include/mmg/libmmg.h  # [not win]

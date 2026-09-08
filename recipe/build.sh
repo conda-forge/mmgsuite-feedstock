@@ -10,8 +10,14 @@ else
   CROSS_ARGS=""
 fi
 
+# Use only the VTK modules shipped by vtk-base.  VTK's config imports targets
+# from the full split package and fails when those optional libraries are absent.
+cp "${RECIPE_DIR}/FindVTK.cmake" cmake/modules/FindVTK.cmake
+
 cmake -G "Ninja" \
     -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_CXX_STANDARD=17 \
+    -DCMAKE_CXX_STANDARD_REQUIRED=ON \
     -DBUILD_SHARED_LIBS=ON \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
     -DTEST_LIBMMG3D=OFF \
