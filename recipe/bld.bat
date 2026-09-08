@@ -6,6 +6,7 @@ cmake -G "Ninja" ^
       -D MMG5_PACKAGE:BOOL=OFF ^
       -D "CMAKE_CXX_FLAGS=/DNOMINMAX" ^
       -S .  ^
+      -D MMG_INSTALL_PRIVATE_HEADERS:BOOL=ON ^
       -B builddir
 if errorlevel 1 exit 1
 

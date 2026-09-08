@@ -20,6 +20,7 @@ cmake -G "Ninja" \
     -DTEST_LIBMMG=OFF \
     -DUSE_VTK=${use_vtk} \
     -DUSE_ELAS=${USE_ELAS} \
+    -DMMG_INSTALL_PRIVATE_HEADERS=ON \
     ${CROSS_ARGS} \
     -S . \
     -B build
