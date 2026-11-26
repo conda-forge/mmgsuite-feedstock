@@ -1,5 +1,7 @@
 c_compiler:
-- vs2022
+- vs
+c_compiler_version:
+- '2022'
 c_stdlib:
 - vs
 channel_sources:
@@ -7,10 +9,12 @@ channel_sources:
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- vs2022
+- vs
+cxx_compiler_version:
+- '2022'
 target_platform:
 - win-64
 use_vtk:
 - 'ON'
-vtk:
-- 9.7.0
+vtk_base:
+- 9.7.2
